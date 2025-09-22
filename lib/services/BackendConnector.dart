@@ -14,7 +14,9 @@ class BackendConnector {
   final _peticionesController = StreamController<List<Peticion>>.broadcast();
   Stream<List<Peticion>> get peticionesStream => _peticionesController.stream;
 
-  Future<void> start() async {
+  Future<void> start(int port) async {
+
+    
     final wsHandler = webSocketHandler((WebSocketChannel socket, String? protocol) {
       clients.add(socket);
       socket.stream.listen(
@@ -43,15 +45,24 @@ class BackendConnector {
           peticion: necesidad,
         );
 
+      print('Nueva petición recibida: $nuevaPeticion');
         peticiones.add(nuevaPeticion);
 
         // 🔹 Notificamos a los que escuchan
         _peticionesController.add(List.from(peticiones));
 
         // reenviar a las apps conectadas por WS
-        for (var client in clients) {
-          client.sink.add(jsonEncode({'intent': intent}));
-        }
+          for (var client in clients) {
+            client.sink.add(jsonEncode({
+              'type': 'new_peticion',       // indica que es una nueva petición
+              'data': {
+                'name': nuevaPeticion.name,
+                'habitacion': nuevaPeticion.habitacion,
+                'prioridad': nuevaPeticion.prioridad,
+                'peticion': nuevaPeticion.peticion,
+              }
+            }));
+          }
 
         final response = {
           "version": "1.0",
@@ -86,7 +97,9 @@ class BackendConnector {
         })
         .handler;
 
-    final server = await io.serve(handler, '0.0.0.0', 8080);
+    final server = await io.serve(handler, '0.0.0.0', port);
     print('Servidor escuchando en http://${server.address.host}:${server.port}');
+
+    
   }
 }

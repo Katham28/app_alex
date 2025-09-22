@@ -42,6 +42,20 @@ String toString() {
          ')';
 }
 
+ factory Peticion.fromJson(Map<String, dynamic> json) => Peticion(
+        name: json['name'] ?? '',
+        habitacion: json['habitacion'] ?? '',
+        prioridad: json['prioridad'] ?? 2,
+        peticion: json['peticion'] ?? '',
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'habitacion': habitacion,
+        'prioridad': prioridad,
+        'peticion': peticion,
+      };
+
 
 
 
