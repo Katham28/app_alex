@@ -1,14 +1,14 @@
 # Imagen oficial de Dart
-FROM dart:stable
+FROM cirrusci/flutter:stable
 # Crear directorio de trabajo
 WORKDIR /app
 # Copiar pubspec y resolver dependencias
 COPY pubspec.* ./
-RUN dart pub get
+RUN flutter pub get
 # Copiar el resto del código
 COPY . .
 # Compilar a ejecutable nativo (opcional pero recomendado)
-RUN dart compile exe bin/server.dart -o bin/server
+RUN flutter compile exe bin/server.dart -o bin/server
 # Exponer puerto
 EXPOSE 8080
 # Comando de arranque
