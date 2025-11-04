@@ -1,16 +1,90 @@
-# app_alex
+# Aplicación alex frontend
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+\##Descripción general del proyecto
 
-A few resources to get you started if this is your first Flutter project:
+\*\*Aplicación alex frontend\*\* es una aplicación de escritorio diseñada para recibir y mostrar las peticiones que alex backend le mande, y el usuario pueda visualizar e ir marcando como completadas.\*\*.  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+---
+
+
+
+\##  Objetivo y contexto
+
+El objetivo principal del proyecto es desarrollar una aplicación de escritorio que permita recibir, visualizar y gestionar en tiempo real las solicitudes enviadas por el servicio backend de Alexa, facilitando que el usuario pueda monitorear y marcar como atendidas las peticiones médicas que se generan mediante comandos de voz.
+---
+
+
+
+\##  Requerimientos de hardware y software
+
+
+
+\###  Hardware
+
+\- Computadora  (versión recomendada: \*\*Windows 11\*\*)  
+
+
+
+
+\###  Software
+
+\- \*\*Sistema operativo:\*\* Windows 10 o superior  
+
+\- \*\*IDE recomendado:\*\* Visual Studio Code o Android Studio  
+
+
+\- \*\*Lenguaje:\*\* Dart / Flutter  
+
+---
+
+
+
+\##  Instrucciones de instalación y ejecución
+
+.
+
+
+
+1\. \*\*Clonar el repositorio o descargar el proyecto.\*\*
+
+&nbsp;  ```bash
+
+&nbsp;  git clone https://github.com/Katham28/app_alex.git
+
+
+
+2\. Abrir el proyecto en Visual Studio Code o Android Studio.
+
+
+3\. Instalar dependencias:
+
+&nbsp;   ```bash
+
+&nbsp;   flutter pub get
+
+
+
+La estructura principal del proyecto es:
+/lib  contiene Código fuente
+/doc documentacion extra del sistema
+
+
+Créditos y autores
+
+
+Desarrolladores:
+
+Katia Marcela Carpio Domínguez
+
+Jorge Sánchez Girón
+
+Responsable del proyecto:
+
+Dr. Hipólito Aguilar Sierra
+
+
+

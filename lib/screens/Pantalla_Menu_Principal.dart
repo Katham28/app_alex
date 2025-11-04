@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import '../screens/Pantalla_Crear_cuenta.dart';
-import '../services/mongo.dart';
 import '../services/AlexaConnector.dart';
 import '../services/BackendConnector.dart';
 import '../services/BackendConnectorClient.dart';
@@ -35,7 +33,8 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
     try {
       // URL del WebSocket
       // local: ws://localhost:8080/ws
-      // deploy: wss://tuservicio.up.railway.app/ws
+      // deploy: wss://appalexbackend-production.up.railway.app/ws
+      
       backendClient = BackendConnectorClient("ws://localhost:8080/ws");
 
       // Escuchar mensajes del backend
@@ -194,10 +193,10 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
     String prioridadTexto = '';
     Color prioridadColor;
 
-    if (prioridad == 0) {
+    if (prioridad == 3) {
       prioridadTexto = 'Alta';
       prioridadColor = Colors.redAccent;
-    } else if (prioridad == 1) {
+    } else if (prioridad == 2) {
       prioridadTexto = 'Media';
       prioridadColor = Colors.yellowAccent;
     } else {
